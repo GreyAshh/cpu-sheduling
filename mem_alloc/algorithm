@@ -1,0 +1,60 @@
+Here's a step-by-step algorithm for the first-fit memory allocation program in C:
+
+1. **Start**
+2. Declare arrays `bsize` (block size), `psize` (process size), `flag` (allocation flag for each block), `allocation` (allocated block for each process).
+3. Initialize `flag` and `allocation` arrays to 0 or -1.
+4. Input the number of blocks (`bno`) and their sizes (`bsize` array).
+5. Input the number of processes (`pno`) and their sizes (`psize` array).
+6. For each process `i` from 0 to `pno - 1`:
+   a. For each block `j` from 0 to `bno - 1`:
+      - If `bsize[j]` is greater than or equal to `psize[i]` and `flag[j]` is 0:
+         1. Allocate block `j` to process `i`.
+         2. Mark block `j` as allocated by setting `flag[j]` to 1.
+         3. Update `allocation[i]` to `j`.
+         4. Break the loop.
+7. Print the allocation table with process number, process size, and allocated block number (or "Not Allocated" if no block is allocated).
+8. **End**
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+This C program simulates the best-fit memory allocation scheme.
+
+1. **Start**
+2. Declare variables `np` (number of processes), `nb` (number of blocks), `i`, `j`, `diff` (difference between block size and process size), `c` (index of the best-fit block).
+3. Input `np` and `nb`.
+4. Declare arrays `block` (block sizes), `p` (process sizes), `a` (allocated block for each process), `f` (flag to indicate whether a block is allocated).
+5. Input block sizes into the `block` array.
+6. Input process sizes into the `p` array.
+7. Initialize the `a` array with -1 (indicating no allocation) and the `f` array with 0 (indicating that no block is allocated).
+8. For each process `i`:
+   a. Initialize `diff` to -1.
+   b. For each block `j`:
+      - If the block size is greater than or equal to the process size and the block is not allocated (`f[j] == 0`):
+         1. If `diff` is -1 or the current difference is smaller than `diff`, update `diff` and `c` to the current difference and block index.
+   c. If a block is found (`c != -1`):
+      - Allocate the block to the process (`a[i] = c + 1` to account for 0-based indexing).
+      - Mark the block as allocated (`f[c] = 1`).
+9. Print the allocation table with process names, process sizes, and allocated block numbers (or "NO ALLOCATED" if no block is allocated).
+10. **End**
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+This C program simulates the best-fit memory allocation scheme. 
+
+1. **Start**
+2. Declare variables `np` (number of processes), `nb` (number of blocks), `i`, `j`, `diff` (difference between block size and process size), `c` (index of the best-fit block).
+3. Input `np` and `nb`.
+4. Declare arrays `block` (block sizes), `p` (process sizes), `a` (allocated block for each process), `f` (flag to indicate whether a block is allocated).
+5. Input block sizes into the `block` array.
+6. Input process sizes into the `p` array.
+7. Initialize the `a` array with -1 (indicating no allocation) and the `f` array with 0 (indicating that no block is allocated).
+8. For each process `i`:
+   a. Initialize `diff` to -1.
+   b. For each block `j`:
+      - If the block size is greater than or equal to the process size and the block is not allocated (`f[j] == 0`):
+         1. If `diff` is -1 or the current difference is smaller than `diff`, update `diff` and `c` to the current difference and block index.
+   c. If a block is found (`c != -1`):
+      - Allocate the block to the process (`a[i] = c + 1` to account for 0-based indexing).
+      - Mark the block as allocated (`f[c] = 1`).
+9. Print the allocation table with process names, process sizes, and allocated block numbers (or "NOT ALLOCATED" if no block is allocated).
+10. **End**
